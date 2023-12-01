@@ -1,0 +1,158 @@
+{
+    "type": "project",
+    "license": "MIT",
+    "minimum-stability": "beta",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=8.2",
+        "ext-ctype": "*",
+        "ext-iconv": "*",
+        "ext-redis": "*",
+        "alexandr-mironov/php8-smpp": "dev-master",
+        "api-platform/core": "^3.2",
+        "aws/aws-php-sns-message-validator": "^1.1",
+        "doctrine/doctrine-bundle": "^2.7",
+        "doctrine/doctrine-migrations-bundle": "^3.2",
+        "doctrine/orm": "^2.12",
+        "dragonmantank/cron-expression": "^3.3",
+        "easycorp/easyadmin-bundle": "^4.8",
+        "egulias/email-validator": "^4.0",
+        "friendsofphp/proxy-manager-lts": "^1.0",
+        "gesdinet/jwt-refresh-token-bundle": "^1.1",
+        "lexik/jwt-authentication-bundle": "^2.19",
+        "mollie/mollie-api-php": "^2.63",
+        "nelmio/cors-bundle": "^2.2",
+        "nesbot/carbon": "^2.71",
+        "nyholm/psr7": "^1.8",
+        "odolbeau/phone-number-bundle": "^3.9",
+        "php-http/httplug-bundle": "^1.31",
+        "phpstan/phpdoc-parser": "^1.16",
+        "runtime/frankenphp-symfony": "^0.1.1",
+        "scienta/doctrine-json-functions": "^5.3",
+        "snc/redis-bundle": "^4.7",
+        "symfony/amazon-mailer": "6.4.*",
+        "symfony/amazon-sqs-messenger": "6.4.*",
+        "symfony/asset": "6.4.*",
+        "symfony/cache": "6.4.*",
+        "symfony/console": "6.4.*",
+        "symfony/doctrine-messenger": "6.4.*",
+        "symfony/dotenv": "6.4.*",
+        "symfony/expression-language": "6.4.*",
+        "symfony/flex": "^2.2",
+        "symfony/framework-bundle": "6.4.*",
+        "symfony/lock": "6.4.*",
+        "symfony/mailer": "6.4.*",
+        "symfony/mercure-bundle": "^0.3.5",
+        "symfony/messenger": "6.4.*",
+        "symfony/monolog-bundle": "^3.8",
+        "symfony/notifier": "6.4.*",
+        "symfony/property-access": "6.4.*",
+        "symfony/property-info": "6.4.*",
+        "symfony/rate-limiter": "^6.3",
+        "symfony/runtime": "6.4.*",
+        "symfony/scheduler": "6.4.*",
+        "symfony/security-bundle": "6.4.*",
+        "symfony/serializer": "6.4.*",
+        "symfony/stimulus-bundle": "^2.13",
+        "symfony/twig-bundle": "6.4.*",
+        "symfony/uid": "6.4.*",
+        "symfony/validator": "6.4.*",
+        "symfony/webpack-encore-bundle": "^2.1",
+        "symfony/yaml": "6.4.*",
+        "symfonycasts/micro-mapper": "^0.1.4",
+        "twig/cssinliner-extra": "^3.7",
+        "twig/extra-bundle": "^3.7",
+        "twig/inky-extra": "^3.7"
+    },
+    "require-dev": {
+        "api-platform/schema-generator": "^5.0",
+        "dama/doctrine-test-bundle": "^v8.0.0-BETA6",
+        "doctrine/doctrine-fixtures-bundle": "^3.4",
+        "mockery/mockery": "^1.6",
+        "php-http/mock-client": "^1.6",
+        "seld/jsonlint": "^1.10",
+        "symfony/browser-kit": "6.4.*",
+        "symfony/css-selector": "6.4.*",
+        "symfony/debug-bundle": "6.4.*",
+        "symfony/maker-bundle": "^1.51",
+        "symfony/phpunit-bridge": "6.4.*",
+        "symfony/stopwatch": "6.4.*",
+        "symfony/var-dumper": "6.4.*",
+        "symfony/web-profiler-bundle": "6.4.*",
+        "zenstruck/browser": "^1.5",
+        "zenstruck/foundry": "^1.36",
+        "zenstruck/messenger-test": "^1.9"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true,
+        "allow-plugins": {
+            "symfony/flex": true,
+            "symfony/runtime": true,
+            "php-http/discovery": true
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/",
+            "smpp\\": "vendor/alexandr-mironov/php8-smpp/src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests/"
+        }
+    },
+    "replace": {
+        "paragonie/random_compat": "2.*",
+        "symfony/polyfill-ctype": "*",
+        "symfony/polyfill-iconv": "*",
+        "symfony/polyfill-intl-grapheme": "*",
+        "symfony/polyfill-intl-normalizer": "*",
+        "symfony/polyfill-mbstring": "*",
+        "symfony/polyfill-php82": "*",
+        "symfony/polyfill-php81": "*",
+        "symfony/polyfill-php80": "*",
+        "symfony/polyfill-php72": "*"
+    },
+    "scripts": {
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+        },
+        "post-install-cmd": [
+            "@auto-scripts"
+        ],
+        "post-update-cmd": [
+            "@auto-scripts"
+        ]
+    },
+    "conflict": {
+        "symfony/symfony": "*",
+        "symfony/serializer": "v6.4.0-RC2"
+    },
+    "extra": {
+        "symfony": {
+            "allow-contrib": false,
+            "require": "6.4.*",
+            "docker": true
+        }
+    },
+    "repositories": [
+        {
+            "type":"package",
+            "package": {
+                "name": "alexandr-mironov/php8-smpp",
+                "version":"master",
+                "source": {
+                    "url": "https://github.com/KDederichs/php8-smpp.git",
+                    "type": "git",
+                    "reference":"main"
+                }
+            }
+        }
+    ]
+}

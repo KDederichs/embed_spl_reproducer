@@ -1,0 +1,27 @@
+snc_redis:
+    clients:
+        balance:
+            type: phpredis
+            alias: balance
+            dsn: "%env(REDIS_URL)%"
+            logging: '%kernel.debug%'
+        sms_routing:
+            type: phpredis
+            alias: sms_routing
+            dsn: "%env(REDIS_URL)%"
+            logging: '%kernel.debug%'
+        sms_price:
+            type: phpredis
+            alias: sms_price
+            dsn: "%env(REDIS_URL)%"
+            logging: '%kernel.debug%'
+        rate_limit:
+            type: phpredis
+            alias: rate_limit
+            dsn: "%env(REDIS_URL)%"
+            logging: '%kernel.debug%'
+        doctrine:
+            type: phpredis
+            alias: doctrine
+            dsn: "%env(REDIS_URL)%"
+            logging: '%kernel.debug%'

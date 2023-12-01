@@ -1,0 +1,10 @@
+twig:
+    default_path: '%kernel.project_dir%/templates'
+    paths:
+        # point this wherever your css files live
+        '%kernel.project_dir%/assets/styles': styles
+    globals:
+        frontend_url: '%env(FRONTEND_ENTRYPOINT)%'
+when@test:
+    twig:
+        strict_variables: true

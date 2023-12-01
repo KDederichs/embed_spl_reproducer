@@ -1,0 +1,15 @@
+httplug:
+    plugins:
+        redirect:
+            preserve_header: true
+        retry:
+            retry: 3
+        authentication:
+            lexoffice_bearer:
+                type: 'bearer'
+                token: '%env(LEX_OFFICE_API_TOKEN)%'
+    discovery:
+        client: 'auto'
+
+    profiling:
+        captured_body_length: ~

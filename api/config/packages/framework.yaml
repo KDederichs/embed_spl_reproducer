@@ -1,0 +1,37 @@
+# see https://symfony.com/doc/current/reference/configuration/framework.html
+framework:
+    secret: '%env(APP_SECRET)%'
+    #csrf_protection: true
+    http_method_override: false
+    handle_all_throwables: true
+ 
+    trusted_proxies: '%env(TRUSTED_PROXIES)%'
+    trusted_hosts: '%env(TRUSTED_HOSTS)%'
+    # See https://caddyserver.com/docs/caddyfile/directives/reverse_proxy#headers
+    trusted_headers: [ 'x-forwarded-for', 'x-forwarded-proto' ]
+
+    # Enables session support. Note that the session will ONLY be started if you read or write from it.
+    # Remove or comment this section to explicitly disable session support.
+    session:
+        handler_id: "%env(REDIS_URL)%"
+        cookie_secure: auto
+        cookie_samesite: lax
+        storage_factory_id: session.storage.factory.native
+
+    #esi: true
+    #fragments: true
+    php_errors:
+        log: true
+    rate_limiter:
+        admin_login_limiter:
+            policy: 'fixed_window'
+            limit: 5
+            interval: '1 minute'
+            cache_pool: 'rate_limit.pool'
+when@test:
+    framework:
+        test: true
+        validation:
+            not_compromised_password: false
+        session:
+            storage_factory_id: session.storage.factory.mock_file
